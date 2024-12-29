@@ -16,6 +16,31 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('nhan-vien.index')" :active="request()->routeIs('nhan-vien.index')">
+                        {{ __('Nhân Viên') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('phong-giam.index')" :active="request()->routeIs('phong-giam.index')">
+                        {{ __('Phòng Giam') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('pham-nhan.index')" :active="request()->routeIs('pham-nhan.index')">
+                        {{ __('Phạm Nhân') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('lich-trinh.index')" :active="request()->routeIs('lich-trinh.index')">
+                        {{ __('Lịch Trình') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('ho-so-y-te.index')" :active="request()->routeIs('ho-so-y-te.index')">
+                        {{ __('Hồ Sơ Y Tế') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
