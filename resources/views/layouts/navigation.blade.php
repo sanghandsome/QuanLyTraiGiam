@@ -27,7 +27,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('pham-nhan.index')" :active="request()->routeIs('pham-nhan.index')">
+                    <x-nav-link :href="route('phamnhans.index')" :active="request()->routeIs('phamnhans.index')">
                         {{ __('Phạm Nhân') }}
                     </x-nav-link>
                 </div>
