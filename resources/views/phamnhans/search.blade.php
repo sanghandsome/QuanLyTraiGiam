@@ -20,7 +20,7 @@
                             <th class="border border-gray-200 px-4 py-2 font-medium text-gray-700">Họ Tên</th>
                             <th class="border border-gray-200 px-4 py-2 font-medium text-gray-700">Giới Tính</th>
                             <th class="border border-gray-200 px-4 py-2 font-medium text-gray-700">Mã Phòng Giam</th>
-                            <th class="border border-gray-200 px-4 py-2 font-medium text-gray-700">Mã Phòng Giam</th>
+                            <th class="border border-gray-200 px-4 py-2 font-medium text-gray-700">Trạng Thái</th>
                             <th class="border border-gray-200 px-4 py-2 font-medium text-gray-700">Hành Động</th>
                         </tr>
                         </thead>
