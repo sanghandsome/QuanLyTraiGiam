@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/ho-so-y-te/2/{maPhamNhan}', [HoSoYTeController::class, 'show2'])->name('ho-so-y-te.show2');
 
 Route::resource('nhan-vien', NhanVienController::class);
 Route::resource('phong-giam', PhongGiamController::class);
