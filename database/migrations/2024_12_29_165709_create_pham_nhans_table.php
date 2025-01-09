@@ -12,13 +12,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('PhamNhan', function (Blueprint $table) {
-            $table->char('MaPhamNhan', 6)->primary();
+            $table->char('MaPhamNhan')->primary();
             $table->string('HoTen', 100);
+            $table->string('DiaChi', 100);
+            $table->string('SDT', 100);
+            $table->string('TheCanCuoc', 100);
+            $table->string('GioiTinh', 100);
             $table->date('NgaySinh');
             $table->text('ChiTietToiDanh');
             $table->date('NgayBatDauAn');
             $table->date('NgayKetThucAn');
             $table->char('MaPhongGiam', 4);
+            $table->text('TrangThai');
             $table->foreign('MaPhongGiam')->references('MaPhongGiam')->on('PhongGiam')->onDelete('cascade');
             $table->timestamps();
         });

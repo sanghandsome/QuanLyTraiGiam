@@ -17,11 +17,16 @@ class PhamNhan extends Model
     protected $fillable = [
         'MaPhamNhan',
         'HoTen',
+        'DiaChi',
+        'SDT',
+        'TheCanCuoc',
+        'GioiTinh',
         'NgaySinh',
         'ChiTietToiDanh',
         'NgayBatDauAn',
         'NgayKetThucAn',
         'MaPhongGiam',
+        'TrangThai',
     ];
 
     // Quan hệ n-1 với bảng PhongGiam

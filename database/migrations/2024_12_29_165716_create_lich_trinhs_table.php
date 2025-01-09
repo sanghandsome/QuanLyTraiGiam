@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('LichTrinh', function (Blueprint $table) {
             $table->char('MaLichTrinh', 6)->primary();
-            $table->char('MaPhamNhan', 6);
+            $table->char('MaPhamNhan');
             $table->string('HoatDong', 50);
             $table->time('ThoiGianBatDau');
             $table->time('ThoiGianKetThuc');

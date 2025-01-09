@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('HoSoYTe', function (Blueprint $table) {
             $table->char('MaHoSo', 6)->primary();
-            $table->char('MaPhamNhan', 6);
+            $table->char('MaPhamNhan');
             $table->string('VanDeYTe', 100);
             $table->date('NgayChanDoan');
             $table->text('PhuongPhapDieuTri');

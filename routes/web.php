@@ -13,6 +13,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -29,8 +30,13 @@ Route::resource('nhan-vien', NhanVienController::class);
 Route::resource('phong-giam', PhongGiamController::class);
 Route::resource('pham-nhan', PhamNhanController::class);
 Route::resource('lichtrinhs', LichTrinhController::class);
+Route::get('/search', [PhamNhanController::class, 'search'])->name('search');
+
+
+Route::resource('nhan-vien', NhanVienController::class);
+Route::resource('phong-giam', PhongGiamController::class);
+Route::resource('phamnhans', PhamNhanController::class);
+Route::resource('lich-trinh', LichTrinhController::class);
 Route::resource('ho-so-y-te', HoSoYTeController::class);
-
-
 
 require __DIR__.'/auth.php';
