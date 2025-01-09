@@ -12,7 +12,8 @@ class PhongGiamController extends Controller
      */
     public function index()
     {
-        return view('phonggiams.index');
+        $phongGiam = PhongGiam::all();
+        return view('phongGiam.index', compact('phongGiam'));
     }
 
     /**
@@ -20,7 +21,7 @@ class PhongGiamController extends Controller
      */
     public function create()
     {
-        //
+        return view('phongGiam.create');
     }
 
     /**
@@ -28,7 +29,23 @@ class PhongGiamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'ma_phong_giam' => 'required',
+            'suc_chua' => 'required',
+            'so_luong_pham_nhan' => 'required',
+            'vi_tri' => 'required',
+            'ma_nhan_vien' => 'required',
+        ]);
+
+        PhongGiam::create($request->only([
+            'ma_phong_giam', 
+            'suc_chua', 
+            'so_luong_pham_nhan', 
+            'vi_tri', 
+            'ma_nhan_vien'
+        ]));
+
+        return redirect()->route('phong-giam.index')->with('success', 'Phòng giam đã được tạo thành công.');
     }
 
     /**
@@ -36,7 +53,7 @@ class PhongGiamController extends Controller
      */
     public function show(PhongGiam $phongGiam)
     {
-        //
+        return view('phongGiam.show', compact('phongGiam'));
     }
 
     /**
@@ -44,7 +61,7 @@ class PhongGiamController extends Controller
      */
     public function edit(PhongGiam $phongGiam)
     {
-        //
+        return view('phongGiam.edit', compact('phongGiam'));
     }
 
     /**
@@ -52,7 +69,23 @@ class PhongGiamController extends Controller
      */
     public function update(Request $request, PhongGiam $phongGiam)
     {
-        //
+        $request->validate([
+            'ma_phong_giam' => 'required',
+            'suc_chua' => 'required',
+            'so_luong_pham_nhan' => 'required',
+            'vi_tri' => 'required',
+            'ma_nhan_vien' => 'required',
+        ]);
+
+        $phongGiam->update($request->only([
+            'ma_phong_giam', 
+            'suc_chua', 
+            'so_luong_pham_nhan', 
+            'vi_tri', 
+            'ma_nhan_vien'
+        ]));
+
+        return redirect()->route('phong-giam.index')->with('success', 'Phòng giam đã được cập nhật thành công.');
     }
 
     /**
@@ -60,6 +93,8 @@ class PhongGiamController extends Controller
      */
     public function destroy(PhongGiam $phongGiam)
     {
-        //
+        $phongGiam->delete();
+
+        return redirect()->route('phong-giam.index')->with('success', 'Phòng giam đã được xóa thành công.');
     }
 }

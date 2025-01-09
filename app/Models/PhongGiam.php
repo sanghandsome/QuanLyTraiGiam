@@ -9,11 +9,19 @@ class PhongGiam extends Model
 {
     use HasFactory;
 
-    protected $table = 'PhongGiam'; // Tên bảng
-    protected $primaryKey = 'MaPhongGiam'; // Khóa chính
-    public $incrementing = false; // Khóa chính không tự tăng
-    protected $keyType = 'string'; // Kiểu dữ liệu của khóa chính
+    // Tên bảng (nếu không theo chuẩn Laravel)
+    protected $table = 'PhongGiam';
 
+    // Khóa chính của bảng
+    protected $primaryKey = 'MaPhongGiam';
+
+    // Chỉ định khóa chính không tự tăng
+    public $incrementing = false;
+
+    // Kiểu dữ liệu của khóa chính (string thay vì int)
+    protected $keyType = 'string';
+
+    // Các trường có thể được gán giá trị bằng cách mass-assignment
     protected $fillable = [
         'MaPhongGiam',
         'SucChua',
@@ -23,12 +31,14 @@ class PhongGiam extends Model
     ];
 
     // Quan hệ n-1 với bảng NhanVien
+    // Phòng giam thuộc về một nhân viên (nhân viên quản lý)
     public function nhanVien()
     {
         return $this->belongsTo(NhanVien::class, 'MaNhanVien', 'MaNhanVien');
     }
 
     // Quan hệ 1-n với bảng PhamNhan
+    // Một phòng giam có nhiều phạm nhân
     public function phamNhans()
     {
         return $this->hasMany(PhamNhan::class, 'MaPhongGiam', 'MaPhongGiam');
