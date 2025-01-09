@@ -32,7 +32,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('lich-trinh.index')" :active="request()->routeIs('lich-trinh.index')">
+                    <x-nav-link :href="route('lichtrinhs.index')" :active="request()->routeIs('lichtrinhs.index')">
                         {{ __('Lịch Trình') }}
                     </x-nav-link>
                 </div>
