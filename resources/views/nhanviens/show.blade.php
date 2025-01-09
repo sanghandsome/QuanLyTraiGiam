@@ -1,3 +1,32 @@
-<div>
-    <!-- Smile, breathe, and go slowly. - Thich Nhat Hanh -->
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <h1 class="mb-5 text-center text-white bg-dark py-3 rounded shadow-lg" style="font-size: 2rem;">Thông Tin Nhân Viên</h1>
+    <table class="table table-bordered">
+        <tr>
+            <th>Mã Nhân Viên:</th>
+            <td>{{ $nhanvien->MaNhanVien }}</td>
+        </tr>
+        <tr>
+            <th>Họ Tên:</th>
+            <td>{{ $nhanvien->HoTen }}</td>
+        </tr>
+        <tr>
+            <th>Chức Vụ:</th>
+            <td>{{ $nhanvien->ChucVu }}</td>
+        </tr>
+        <tr>
+            <th>Số Điện Thoại:</th>
+            <td>{{ $nhanvien->SoDienThoai }}</td>
+        </tr>
+        <tr>
+            <th>Ca Làm:</th>
+            <td>{{ $nhanvien->CaLam }}</td>
+        </tr>
+    </table>
+
+    <a href="{{ route('nhan-vien.index') }}" class="btn btn-secondary mt-3">Quay Lại</a>
+    <a href="{{ route('nhan-vien.edit', $nhanvien->MaNhanVien) }}" class="btn btn-warning mt-3">Chỉnh Sửa</a>
 </div>
+@endsection
