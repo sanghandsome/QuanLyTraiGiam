@@ -28,4 +28,21 @@ class LichTrinh extends Model
     {
         return $this->belongsTo(PhamNhan::class, 'MaPhamNhan', 'MaPhamNhan');
     }
+      // Quan hệ 1-n nếu LichTrinh có thể liên kết với một bảng khác (ví dụ: hoạt động liên quan)
+      public function hoatDongs()
+      {
+          return $this->hasMany(HoatDong::class, 'MaLichTrinh', 'MaLichTrinh');
+      }
+  
+      // Custom Accessor (tuỳ chỉnh thuộc tính)
+      public function getFullThoiGianAttribute()
+      {
+          return $this->ThoiGianBatDau . ' - ' . $this->ThoiGianKetThuc;
+      }
+  
+      // Custom Mutator (tuỳ chỉnh khi set dữ liệu)
+      public function setViTriAttribute($value)
+      {
+          $this->attributes['ViTri'] = ucfirst($value); // Viết hoa chữ cái đầu
+      }
 }

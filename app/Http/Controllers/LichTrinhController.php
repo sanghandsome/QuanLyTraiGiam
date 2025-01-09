@@ -12,7 +12,9 @@ class LichTrinhController extends Controller
      */
     public function index()
     {
-        return view('lichtrinhs.index');
+        $lichTrinhs = LichTrinh::all();
+        return view('lichtrinhs.index', compact('lichTrinhs'));
+
     }
 
     /**
@@ -20,7 +22,7 @@ class LichTrinhController extends Controller
      */
     public function create()
     {
-        //
+        return view('lichtrinhs.create');
     }
 
     /**
@@ -28,38 +30,64 @@ class LichTrinhController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        LichTrinh::create($request->all());
+
+        return redirect()->route('lichtrinhs.index')
+            ->with('success', 'Lịch trình được tạo thành công.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(LichTrinh $lichTrinh)
+    public function show($id)
     {
-        //
+        $lichTrinh = Lichtrinh::findOrFail($id);
+        return view('lichtrinhs.show', compact('lichTrinh'));
+      
+
+    // Định dạng lại thời gian để hiển thị chính xác nếu cần
+    $lichTrinh->ThoiGianBatDau = \Carbon\Carbon::parse($lichTrinh->ThoiGianBatDau)->format('H:i');
+    $lichTrinh->ThoiGianKetThuc = \Carbon\Carbon::parse($lichTrinh->ThoiGianKetThuc)->format('H:i');
+
+    
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(LichTrinh $lichTrinh)
+    public function edit($id)
     {
-        //
+        $lichTrinh = Lichtrinh::findOrfail($id);
+        $lichTrinh->ThoiGianBatDau = \Carbon\Carbon::parse($lichTrinh->ThoiGianBatDau)->format('H:i');
+$lichTrinh->ThoiGianKetThuc = \Carbon\Carbon::parse($lichTrinh->ThoiGianKetThuc)->format('H:i');
+
+        return view('lichtrinhs.edit', compact('lichTrinh'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, LichTrinh $lichTrinh)
+    public function update(Request $request, $id    )
     {
-        //
+
+ $lichTrinh = Lichtrinh::findOrfail($id);
+        $lichTrinh->update($request->all());
+
+        return redirect()->route('lichtrinhs.index')
+            ->with('success', 'Lịch trình được cập nhật thành công.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(LichTrinh $lichTrinh)
+    public function destroy($id)
     {
+        $lichTrinh = Lichtrinh::findOrfail($id);
+        $lichTrinh->delete();
 
+        return redirect()->route('lichtrinhs.index')
+            ->with('success', 'Lịch trình được xóa thành công.');
     }
 }

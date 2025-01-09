@@ -28,7 +28,7 @@ Route::get('/ho-so-y-te/2/{maPhamNhan}', [HoSoYTeController::class, 'show2'])->n
 Route::resource('nhan-vien', NhanVienController::class);
 Route::resource('phong-giam', PhongGiamController::class);
 Route::resource('pham-nhan', PhamNhanController::class);
-Route::resource('lich-trinh', LichTrinhController::class);
+Route::resource('lichtrinhs', LichTrinhController::class);
 Route::resource('ho-so-y-te', HoSoYTeController::class);
 
 
