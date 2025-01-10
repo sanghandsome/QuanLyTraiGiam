@@ -32,11 +32,13 @@ Route::resource('pham-nhan', PhamNhanController::class);
 Route::resource('lichtrinhs', LichTrinhController::class);
 Route::get('/search', [PhamNhanController::class, 'search'])->name('search');
 
-
-Route::resource('nhan-vien', NhanVienController::class);
-Route::resource('phong-giam', PhongGiamController::class);
 Route::resource('phamnhans', PhamNhanController::class);
 Route::resource('lich-trinh', LichTrinhController::class);
 Route::resource('ho-so-y-te', HoSoYTeController::class);
 
+
+
+Route::get('phong-giam/{MaPhongGiam}/edit', [PhongGiamController::class, 'edit'])->name('phong-giam.edit');
+Route::put('phong-giam/{MaPhongGiam}', [PhongGiamController::class, 'update'])->name('phong-giam.update');
+Route::resource('phong-giam', PhongGiamController::class)->except(['edit', 'update']);
 require __DIR__.'/auth.php';

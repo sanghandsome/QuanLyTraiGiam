@@ -45,13 +45,13 @@ class LichTrinhController extends Controller
     {
         $lichTrinh = Lichtrinh::findOrFail($id);
         return view('lichtrinhs.show', compact('lichTrinh'));
-      
 
-    // Định dạng lại thời gian để hiển thị chính xác nếu cần
-    $lichTrinh->ThoiGianBatDau = \Carbon\Carbon::parse($lichTrinh->ThoiGianBatDau)->format('H:i');
-    $lichTrinh->ThoiGianKetThuc = \Carbon\Carbon::parse($lichTrinh->ThoiGianKetThuc)->format('H:i');
 
-    
+        // Định dạng lại thời gian để hiển thị chính xác nếu cần
+        $lichTrinh->ThoiGianBatDau = \Carbon\Carbon::parse($lichTrinh->ThoiGianBatDau)->format('H:i');
+        $lichTrinh->ThoiGianKetThuc = \Carbon\Carbon::parse($lichTrinh->ThoiGianKetThuc)->format('H:i');
+
+
     }
 
     /**
@@ -61,7 +61,7 @@ class LichTrinhController extends Controller
     {
         $lichTrinh = Lichtrinh::findOrfail($id);
         $lichTrinh->ThoiGianBatDau = \Carbon\Carbon::parse($lichTrinh->ThoiGianBatDau)->format('H:i');
-$lichTrinh->ThoiGianKetThuc = \Carbon\Carbon::parse($lichTrinh->ThoiGianKetThuc)->format('H:i');
+        $lichTrinh->ThoiGianKetThuc = \Carbon\Carbon::parse($lichTrinh->ThoiGianKetThuc)->format('H:i');
 
         return view('lichtrinhs.edit', compact('lichTrinh'));
     }
@@ -69,10 +69,10 @@ $lichTrinh->ThoiGianKetThuc = \Carbon\Carbon::parse($lichTrinh->ThoiGianKetThuc)
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id    )
+    public function update(Request $request, $id)
     {
 
- $lichTrinh = Lichtrinh::findOrfail($id);
+        $lichTrinh = Lichtrinh::findOrfail($id);
         $lichTrinh->update($request->all());
 
         return redirect()->route('lichtrinhs.index')

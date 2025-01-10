@@ -12,7 +12,8 @@ class PhongGiamController extends Controller
      */
     public function index()
     {
-        return view('phonggiams.index');
+        $phongGiam = PhongGiam::all();
+        return view('phonggiams.index', compact('phongGiam'));
     }
 
     /**
@@ -20,7 +21,7 @@ class PhongGiamController extends Controller
      */
     public function create()
     {
-        //
+        return view('phonggiams.create');
     }
 
     /**
@@ -28,31 +29,39 @@ class PhongGiamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        PhongGiam::create($request->all());
+        return redirect()->route('phong-giam.index')->with('success', 'Phòng giam đã được tạo thành công.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(PhongGiam $phongGiam)
+    public function show($id)
     {
-        //
+        $phongGiam = PhongGiam::findOrFail($id);
+        return view('phonggiams.show', compact('phongGiam'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PhongGiam $phongGiam)
+    public function edit($MaPhongGiam)
     {
-        //
+        $phongGiam = PhongGiam::findOrFail($MaPhongGiam);
+        return view('phonggiams.edit', compact('phongGiam'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PhongGiam $phongGiam)
+    public function update(Request $request, $id)
     {
-        //
+        $phongGiam = PhongGiam::findOrFail($id);
+
+        $phongGiam->update($request->all());
+
+        return redirect()->route('phong-giam.index')->with('success', 'Phòng giam đã được cập nhật thành công.');
     }
 
     /**
@@ -60,6 +69,8 @@ class PhongGiamController extends Controller
      */
     public function destroy(PhongGiam $phongGiam)
     {
-        //
+        $phongGiam->delete();
+
+        return redirect()->route('phong-giam.index')->with('success', 'Phòng giam đã được xóa thành công.');
     }
 }
