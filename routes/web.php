@@ -25,6 +25,13 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/ho-so-y-te/2/{maPhamNhan}', [HoSoYTeController::class, 'show2'])->name('ho-so-y-te.show2');
+Route::get('nhan-vien/{id}/phong-giam', [NhanVienController::class, 'xemPhongGiam'])
+    ->name('nhan-vien.phong-giam');
+
+    Route::get('/nhan-vien', [NhanVienController::class, 'index'])->name('nhan-vien.index');
+
+    Route::get('/nhan-vien/ca-lam/{caLam}', [NhanVienController::class, 'getNhanVienByCaLam'])->name('nhan-vien.ca-lam');
+
 
 Route::resource('nhan-vien', NhanVienController::class);
 Route::resource('phong-giam', PhongGiamController::class);
