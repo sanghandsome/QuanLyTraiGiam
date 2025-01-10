@@ -8,44 +8,43 @@
         </h2>
     </x-slot>
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <a href="{{ url('/phamnhans') }}" class="text-blue-500 hover:text-blue-700">Quay lại trang chủ</a>
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <table class="min-w-full border-collapse border border-gray-200 text-left text-sm">
-                        <thead>
-                        <tr class="bg-gray-100">
-                            <th class="border border-gray-200 px-4 py-2 font-medium text-gray-700">STT</th>
-                            <th class="border border-gray-200 px-4 py-2 font-medium text-gray-700">Mã Phạm Nhân</th>
-                            <th class="border border-gray-200 px-4 py-2 font-medium text-gray-700">Họ Tên</th>
-                            <th class="border border-gray-200 px-4 py-2 font-medium text-gray-700">Giới Tính</th>
-                            <th class="border border-gray-200 px-4 py-2 font-medium text-gray-700">Mã Phòng Giam</th>
-                            <th class="border border-gray-200 px-4 py-2 font-medium text-gray-700">Trạng Thái</th>
-                            <th class="border border-gray-200 px-4 py-2 font-medium text-gray-700">Hành Động</th>
+        <div class="container">
+            <a href="{{ url('/phamnhans') }}" class="btn btn-link">Quay lại trang chủ</a>
+            <div class="bg-white shadow-sm rounded">
+                <div class="p-4 text-gray-900">
+                    <table class="table">
+                        <thead class="table-light">
+                        <tr>
+                            <th>STT</th>
+                            <th>Mã Phạm Nhân</th>
+                            <th>Họ Tên</th>
+                            <th>Giới Tính</th>
+                            <th>Mã Phòng Giam</th>
+                            <th>Trạng Thái</th>
+                            <th>Hành Động</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($phamNhans as $phamNhan)
-                            <tr class="hover:bg-gray-50">
-                                <td class="border border-gray-200 px-4 py-2">{{$cnt}}</td>
-                                <td class="border border-gray-200 px-4 py-2">{{$phamNhan->MaPhamNhan}}</td>
-                                <td class="border border-gray-200 px-4 py-2">{{$phamNhan->HoTen}}</td>
-                                <td class="border border-gray-200 px-4 py-2">{{$phamNhan->GioiTinh}}</td>
-                                <td class="border border-gray-200 px-4 py-2">{{$phamNhan->MaPhongGiam}}</td>
-                                <td class="border border-gray-200 px-4 py-2">{{$phamNhan->TrangThai}}</td>
+                            <tr>
+                                <td>{{$cnt}}</td>
+                                <td>{{$phamNhan->MaPhamNhan}}</td>
+                                <td>{{$phamNhan->HoTen}}</td>
+                                <td>{{$phamNhan->GioiTinh}}</td>
+                                <td>{{$phamNhan->MaPhongGiam}}</td>
+                                <td>{{$phamNhan->TrangThai}}</td>
                                 <td>
-                                    <a href="{{ route('phamnhans.edit', $phamNhan->MaPhamNhan) }}" class="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600">
+                                    <a href="{{ route('phamnhans.edit', $phamNhan->MaPhamNhan) }}" class="btn btn-warning btn-sm">
                                         Sửa
                                     </a>
-                                    <form action="{{ route('phamnhans.destroy', $phamNhan->MaPhamNhan) }}" method="POST" class="inline-block" id="delete-form-{{ $phamNhan->MaPhamNhan }}">
+                                    <form action="{{ route('phamnhans.destroy', $phamNhan->MaPhamNhan) }}" method="POST" class="d-inline" id="delete-form-{{ $phamNhan->MaPhamNhan }}">
                                         @csrf
                                         @method('DELETE')
-
-                                        <button class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600" type="submit" {{ route('phamnhans.destroy', $phamNhan->MaPhamNhan) }}')">
-                                        Xóa
+                                        <button class="btn btn-danger btn-sm" type="submit">
+                                            Xóa
                                         </button>
                                     </form>
-                                    <a href="{{ route('phamnhans.show', $phamNhan->MaPhamNhan) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+                                    <a href="{{ route('phamnhans.show', $phamNhan->MaPhamNhan) }}" class="btn btn-info btn-sm">
                                         Xem
                                     </a>
                                 </td>
@@ -60,6 +59,6 @@
             </div>
         </div>
     </div>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </x-app-layout>
-
-

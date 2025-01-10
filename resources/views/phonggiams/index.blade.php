@@ -16,7 +16,7 @@
                     <th>Số lượng phạm nhân hiện tại</th>
                     <th>Vị trí</th>
                     <th>Mã nhân viên</th>
-                    <th>Hành động</th>
+                    <!-- <th>Hành động</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -27,7 +27,7 @@
                         <td>{{ $phongGiam1->SoLuongPhamNhanHienTai }}</td>
                         <td>{{ $phongGiam1->ViTri }}</td>
                         <td>{{ $phongGiam1->MaNhanVien ?? 'Chưa được gán' }}</td>
-                        <td>
+                        <!-- <td>
                             <a href="{{ route('phong-giam.show', $phongGiam1->MaPhongGiam) }}" class="btn btn-info">Xem</a>
                             <a href="{{ route('phong-giam.edit', $phongGiam1->MaPhongGiam) }}"
                                 class="btn btn-warning">Sửa</a>
@@ -38,7 +38,7 @@
                                 <button type="submit" class="btn btn-danger"
                                     onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</button>
                             </form>
-                        </td>
+                        </td> -->
                     </tr>
                 @endforeach
             </tbody>
